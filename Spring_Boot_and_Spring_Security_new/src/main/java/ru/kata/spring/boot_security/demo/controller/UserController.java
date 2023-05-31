@@ -28,7 +28,7 @@ public class UserController {
         this.roleService = roleService;
     }
     @GetMapping("/user")
-    public String infoUser(Model model) {
+    public String getUser(Model model) {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user = userService.findUserByUsername(userDetails.getUsername());
         model.addAttribute("user", user);
